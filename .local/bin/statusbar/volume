@@ -10,11 +10,10 @@ case $BLOCK_BUTTON in
 - Scroll to change."
 esac
 
-volstat="$(amixer get Master)"
 
-echo "$volstat" | grep "\[off\]" >/dev/null && printf "🔇\\n" && exit
+[ $(pulsemixer --get-mute) = "1" ] && printf "🔇\\n" && exit
 
-vol=$(echo "$volstat" | grep -o "\[[0-9]\+%\]" | sed "s/[^0-9]*//g;1q")
+vol=$(pulsemixer --get-volume | awk '{print $1}')
 
 if [ "$vol" -gt "70" ]; then
 	icon="🔊"
