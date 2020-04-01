@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ -z $(bluetoothctl info | grep Connected:\ yes) ] || printf "🎧\\n"

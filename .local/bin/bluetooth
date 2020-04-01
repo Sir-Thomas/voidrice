@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case "$1" in
+	connect) bluetoothctl connect 00:00:00:01:CC:C7 ;;
+	disconnect) bluetoothctl disconnect 00:00:00:01:CC:C7 ;;
+esac >/dev/null
+
+pkill -RTMIN+14 "${STATUSBAR:?}" &
