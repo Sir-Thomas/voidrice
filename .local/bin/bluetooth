@@ -1,7 +1,9 @@
 #!/bin/sh
 
-[ -z "$(bluetoothctl info | grep Connected:\ yes)" ] && bluetoothctl connect 00:00:00:01:CC:C7 || bluetoothctl disconnect 00:00:00:01:CC:C7
+device="00:00:00:01:CC:C7"
 
+[ -z "$(rfkill list | grep yes)" ] || sudo rfkill unblock all
+[ -z "$(bluetoothctl info $device | grep Connected:\ yes)" ] || bluetoothctl disconnect $device && bluetoothctl connect $device
 
 pkill -RTMIN+14 "${STATUSBAR:?}" &
 pkill -RTMIN+10 "${STATUSBAR:?}" &

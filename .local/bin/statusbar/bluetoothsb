@@ -1,3 +1,4 @@
 #!/bin/sh
+device="00:00:00:01:CC:C7"
 
-[ -z "$(bluetoothctl info | grep Connected:\ yes)" ] || printf "🎧\\n"
+[ -z "$(bluetoothctl info $device | grep Connected:\ yes)" ] || printf "🎧\\n"
