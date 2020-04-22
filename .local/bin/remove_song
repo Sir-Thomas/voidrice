@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ~/Music
+rm "$(mpc listall | dmenu -l 10 -i)"
