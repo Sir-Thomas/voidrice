@@ -13,6 +13,7 @@ alias \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner"
+	dd="sudo dd bs=4096 status=progress"
 
 # Colorize commands when possible.
 alias \
@@ -44,3 +45,4 @@ alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
 	weath="less -S ~/.local/share/weatherreport" \
+	cbg="setbg ~/wallpapers"
